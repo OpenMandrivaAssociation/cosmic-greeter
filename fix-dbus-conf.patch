@@ -1,0 +1,19 @@
+diff -rub cosmic-greeter/dbus/com.system76.CosmicGreeter.conf cosmic-greeter-patched/dbus/com.system76.CosmicGreeter.conf
+--- cosmic-greeter/dbus/com.system76.CosmicGreeter.conf	2024-05-22 09:56:51.722730336 +0200
++++ cosmic-greeter-patched/dbus/com.system76.CosmicGreeter.conf	2024-05-23 05:07:07.860949755 +0200
+@@ -2,13 +2,11 @@
+           "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
+           "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+ <busconfig>
+-    <policy group="cosmic-greeter">
++    <policy group="greeter">
+         <allow send_destination="com.system76.CosmicGreeter"/>
+-        <allow receive_sender="com.system76.CosmicGreeter"/>
+     </policy>
+     <policy user="root">
+         <allow own="com.system76.CosmicGreeter"/>
+         <allow send_destination="com.system76.CosmicGreeter"/>
+-        <allow receive_sender="com.system76.CosmicGreeter"/>
+     </policy>
+ </busconfig>
+Binary files cosmic-greeter/.git/index and cosmic-greeter-patched/.git/index differ
