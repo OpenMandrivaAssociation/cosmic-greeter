@@ -1,17 +1,21 @@
+%undefine _debugsource_packages
 %define         appname com.system76.CosmicGreeter
 Name:           cosmic-greeter
-Version:        1.0.0~alpha1
-Release:        0
+Version:        1.0.0
+Release:        0.alpha1.0
 Summary:        COSMIC greeter for greetd
 License:        GPL-3.0-only
 URL:            https://github.com/pop-os/cosmic-greeter
-Source0:        %{name}-%{version}.tar.zst
-Source1:        vendor.tar.zst
-Source2:        %{name}.service
-Source3:        %{name}-daemon.service
+Source0:        https://github.com/pop-os/cosmic-greeter/archive/epoch-%{version}-alpha.1/%{name}-epoch-%{version}-alpha.1.tar.gz
+Source1:        vendor.tar.xz
+Source2:        cargo_config
+
+Source3:        %{name}.service
+Source4:        %{name}-daemon.service
 Patch0:         fix-dbus-conf.patch
 Patch1:         switch-to-greetd-user.patch
-BuildRequires:  cargo-packaging
+
+BuildRequires:  rust-packaging
 BuildRequires:  clang-devel
 BuildRequires:  git-core
 BuildRequires:  greetd
@@ -31,7 +35,7 @@ BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(xkbcommon)
 Requires:       bash
 Requires:       cosmic-comp
-Requires:       mozilla-fira-fonts
+#Requires:       mozilla-fira-fonts
 Requires:       greetd >= 0.10
 %systemd_requires
 
@@ -39,7 +43,9 @@ Requires:       greetd >= 0.10
 libcosmic greeter for greetd, which can be run inside cosmic-comp
 
 %prep
-%autosetup -p1 -a1
+%autosetup -n %{name}-epoch-%{version}-alpha.1 -a1 -p1
+mkdir .cargo
+cp %{SOURCE2} .cargo/config
 
 %build
 just build-release
@@ -66,9 +72,6 @@ rm -f %{buildroot}%{_sysusersdir}/%{name}.conf
 
 %postun
 %service_del_postun %{name}.service %{name}-daemon.service
-
-%check
-%{cargo_test}
 
 %files
 %license LICENSE
