@@ -56,8 +56,8 @@ install -d %{buildroot}%{_sharedstatedir}/%{name}
 install -D -m 0644 %{name}.toml %{buildroot}%{_sysconfdir}/greetd/%{name}.toml
 chmod 0644 %{buildroot}%{_datadir}/dbus-1/system.d/%{appname}.conf
 chmod -x %{buildroot}%{_datadir}/dbus-1/system.d/%{appname}.conf
-install -D -m 0644 %{SOURCE2} %{buildroot}%{_unitdir}/%{name}.service
-install -D -m 0644 %{SOURCE3} %{buildroot}%{_unitdir}/%{name}-daemon.service
+install -D -m 0644 %{SOURCE3} %{buildroot}%{_unitdir}/%{name}.service
+install -D -m 0644 %{SOURCE4} %{buildroot}%{_unitdir}/%{name}-daemon.service
 rm -f %{buildroot}%{_sysusersdir}/%{name}.conf
 
 %pre
