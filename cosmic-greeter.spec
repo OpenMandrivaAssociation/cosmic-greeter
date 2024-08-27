@@ -60,18 +60,18 @@ install -D -m 0644 %{SOURCE3} %{buildroot}%{_unitdir}/%{name}.service
 install -D -m 0644 %{SOURCE4} %{buildroot}%{_unitdir}/%{name}-daemon.service
 rm -f %{buildroot}%{_sysusersdir}/%{name}.conf
 
-%pre
-%service_add_pre %{name}.service %{name}-daemon.service
+#pre
+#service_add_pre %{name}.service %{name}-daemon.service
 
-%post
-%service_add_post %{name}.service %{name}-daemon.service
-%tmpfiles_create %{_prefix}/lib/tmpfiles.d/%{name}.conf
+#post
+#service_add_post %{name}.service %{name}-daemon.service
+#tmpfiles_create %{_prefix}/lib/tmpfiles.d/%{name}.conf
 
-%preun
-%service_del_preun %{name}.service %{name}-daemon.service
+#preun
+#service_del_preun %{name}.service %{name}-daemon.service
 
-%postun
-%service_del_postun %{name}.service %{name}-daemon.service
+#postun
+#service_del_postun %{name}.service %{name}-daemon.service
 
 %files
 %license LICENSE
