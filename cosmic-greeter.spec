@@ -2,11 +2,11 @@
 %define         appname com.system76.CosmicGreeter
 Name:           cosmic-greeter
 Version:        1.0.0
-Release:        0.alpha4.0
+Release:        0.alpha5.0
 Summary:        COSMIC greeter for greetd
 License:        GPL-3.0-only
 URL:            https://github.com/pop-os/cosmic-greeter
-Source0:        https://github.com/pop-os/cosmic-greeter/archive/epoch-%{version}-alpha.4/%{name}-epoch-%{version}-alpha.4.tar.gz
+Source0:        https://github.com/pop-os/cosmic-greeter/archive/epoch-%{version}-alpha.5/%{name}-epoch-%{version}-alpha.5.tar.gz
 Source1:        vendor.tar.xz
 Source2:        cargo_config
 
@@ -43,7 +43,7 @@ Requires:       greetd >= 0.10
 libcosmic greeter for greetd, which can be run inside cosmic-comp
 
 %prep
-%autosetup -n %{name}-epoch-%{version}-alpha.4 -a1 -p1
+%autosetup -n %{name}-epoch-%{version}-alpha.5 -a1 -p1
 mkdir .cargo
 cp %{SOURCE2} .cargo/config
 
