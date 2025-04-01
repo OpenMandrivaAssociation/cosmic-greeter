@@ -1,4 +1,5 @@
 %undefine _debugsource_packages
+
 %define         appname com.system76.CosmicGreeter
 Name:           cosmic-greeter
 Version:        1.0.0
@@ -46,42 +47,54 @@ libcosmic greeter for greetd, which can be run inside cosmic-comp
 %prep
 %autosetup -n %{name}-epoch-%{version}%{?beta:-%{beta}} -a1 -p1
 mkdir .cargo
-cp %{SOURCE2} .cargo/config
+cp %{SOURCE2} .cargo/config.toml
 
 %build
 just build-release
 
 %install
 just rootdir=%{buildroot} prefix=%{_prefix} install
-install -d %{buildroot}%{_sharedstatedir}/%{name}
-install -D -m 0644 %{name}.toml %{buildroot}%{_sysconfdir}/greetd/%{name}.toml
 chmod 0644 %{buildroot}%{_datadir}/dbus-1/system.d/%{appname}.conf
 chmod -x %{buildroot}%{_datadir}/dbus-1/system.d/%{appname}.conf
+install -Dm0644 debian/cosmic-greeter.sysusers %{buildroot}/%{_sysusersdir}/cosmic-greeter.conf
+install -Dm0644 debian/cosmic-greeter.tmpfiles %{buildroot}/%{_tmpfilesdir}/cosmic-greeter.conf
+install -Dm0644 cosmic-greeter.toml %{buildroot}/%{_sysconfdir}/greetd/cosmic-greeter.toml
 install -D -m 0644 %{SOURCE3} %{buildroot}%{_unitdir}/%{name}.service
 install -D -m 0644 %{SOURCE4} %{buildroot}%{_unitdir}/%{name}-daemon.service
-rm -f %{buildroot}%{_sysusersdir}/%{name}.conf
 
-#pre
-#service_add_pre %{name}.service %{name}-daemon.service
+install -d %{buildroot}%{_sysconfdir}/pam.d
+ln -s %{_sysconfdir}/pam.d/greetd %{buildroot}/%{_sysconfdir}/pam.d/%{name}
 
-#post
-#service_add_post %{name}.service %{name}-daemon.service
-#tmpfiles_create %{_prefix}/lib/tmpfiles.d/%{name}.conf
+install -D -m 0644 %{name}.toml %{buildroot}%{_sysconfdir}/greetd/%{name}.toml
+install -d %{buildroot}%{_sharedstatedir}/%{name}
+# rm -f {buildroot}{_sysusersdir}/{name}.conf
 
-#preun
-#service_del_preun %{name}.service %{name}-daemon.service
+# pre
+# sysusers_create_compat debian/cosmic-greeter.sysusers
 
-#postun
-#service_del_postun %{name}.service %{name}-daemon.service
+%post
+%systemd_post cosmic-greeter.service
+%systemd_post cosmic-greeter-daemon.service
+
+%preun
+%systemd_preun cosmic-greeter.service
+%systemd_preun cosmic-greeter-daemon.service
+
+%postun
+%systemd_postun cosmic-greeter.service
+%systemd_postun cosmic-greeter-daemon.service
 
 %files
 %license LICENSE
 %doc README.md
 %{_bindir}/%{name}
 %{_bindir}/%{name}-daemon
-%config(noreplace) %{_sysconfdir}/greetd/%{name}.toml
-%{_prefix}/lib/tmpfiles.d/%{name}.conf
 %{_datadir}/dbus-1/system.d/%{appname}.conf
-%{_sharedstatedir}/%{name}
+%{_sysusersdir}/cosmic-greeter.conf
+%{_tmpfilesdir}/cosmic-greeter.conf
+%{_sysconfdir}/greetd/cosmic-greeter.toml
 %{_unitdir}/%{name}.service
 %{_unitdir}/%{name}-daemon.service
+%{_sysconfdir}/pam.d/cosmic-greeter
+%{_sharedstatedir}/%{name}
+
