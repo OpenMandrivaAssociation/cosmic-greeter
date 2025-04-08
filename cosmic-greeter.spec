@@ -3,7 +3,7 @@
 Name:           cosmic-greeter
 Version:        1.0.0
 %define beta alpha.6
-Release:        %{?beta:0.%{beta}.}1
+Release:        %{?beta:0.%{beta}.}2
 Summary:        COSMIC greeter for greetd
 License:        GPL-3.0-only
 URL:            https://github.com/pop-os/cosmic-greeter
