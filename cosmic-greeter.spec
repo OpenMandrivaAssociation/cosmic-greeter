@@ -13,6 +13,7 @@ Source2:        cargo_config
 
 Source3:        %{name}.service
 Source4:        %{name}-daemon.service
+Source5:	cosmic-greeter.pam
 Patch0:         fix-dbus-conf.patch
 Patch1:         switch-to-greetd-user.patch
 
@@ -60,19 +61,21 @@ chmod -x %{buildroot}%{_datadir}/dbus-1/system.d/%{appname}.conf
 install -D -m 0644 %{SOURCE3} %{buildroot}%{_unitdir}/%{name}.service
 install -D -m 0644 %{SOURCE4} %{buildroot}%{_unitdir}/%{name}-daemon.service
 rm -f %{buildroot}%{_sysusersdir}/%{name}.conf
+install -Dm0644 %{SOURCE5} %{buildroot}/%{_sysconfdir}/pam.d/%{name}
+mkdir -p %{buildroot}/var/lib/greetd
 
-#pre
-#service_add_pre %{name}.service %{name}-daemon.service
+%post
+%systemd_post %{name}.service 
+%systemd_post %{name}-daemon.service
 
-#post
-#service_add_post %{name}.service %{name}-daemon.service
-#tmpfiles_create %{_prefix}/lib/tmpfiles.d/%{name}.conf
 
-#preun
-#service_del_preun %{name}.service %{name}-daemon.service
+%preun
+%systemd_preun %{name}.service 
+%systemd_preun %{name}-daemon.service
 
-#postun
-#service_del_postun %{name}.service %{name}-daemon.service
+%postun
+%systemd_postun %{name}.service
+%systemd_postun %{name}-daemon.service
 
 %files
 %license LICENSE
@@ -85,3 +88,5 @@ rm -f %{buildroot}%{_sysusersdir}/%{name}.conf
 %{_sharedstatedir}/%{name}
 %{_unitdir}/%{name}.service
 %{_unitdir}/%{name}-daemon.service
+%attr(700, greeter, greeter) /var/lib/greetd
+%{_sysconfdir}/pam.d/%{name}
