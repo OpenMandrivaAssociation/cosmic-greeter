@@ -1,6 +1,6 @@
 diff -rub cosmic-greeter/cosmic-greeter.toml cosmic-greeter-patched/cosmic-greeter.toml
---- cosmic-greeter/cosmic-greeter.toml	2024-06-19 02:55:42.020166914 +0200
-+++ cosmic-greeter-patched/cosmic-greeter.toml	2024-06-19 05:28:16.332353607 +0200
+--- cosmic-greeter/cosmic-greeter.toml	2025-04-24 19:34:03.563449800 +0200
++++ cosmic-greeter-patched/cosmic-greeter.toml	2025-04-24 19:42:01.295997824 +0200
 @@ -6,4 +6,4 @@
  
  [default_session]
@@ -8,18 +8,18 @@ diff -rub cosmic-greeter/cosmic-greeter.toml cosmic-greeter-patched/cosmic-greet
 -user = "cosmic-greeter"
 +user = "greeter"
 diff -rub cosmic-greeter/debian/cosmic-greeter.tmpfiles cosmic-greeter-patched/debian/cosmic-greeter.tmpfiles
---- cosmic-greeter/debian/cosmic-greeter.tmpfiles	2024-06-19 02:55:42.023500241 +0200
-+++ cosmic-greeter-patched/debian/cosmic-greeter.tmpfiles	2024-06-19 05:28:33.662341700 +0200
+--- cosmic-greeter/debian/cosmic-greeter.tmpfiles	2025-04-24 19:34:03.564332630 +0200
++++ cosmic-greeter-patched/debian/cosmic-greeter.tmpfiles	2025-04-24 19:42:01.296273906 +0200
 @@ -1,2 +1,2 @@
  # Home directory of cosmic-greeter
 -d	/var/lib/cosmic-greeter	0750	cosmic-greeter	cosmic-greeter
 \ No newline at end of file
 +d	/var/lib/cosmic-greeter	0750	greeter	greeter
 diff -rub cosmic-greeter/src/main.rs cosmic-greeter-patched/src/main.rs
---- cosmic-greeter/src/main.rs	2024-06-19 02:55:42.140166725 +0200
-+++ cosmic-greeter-patched/src/main.rs	2024-06-19 05:28:54.515661267 +0200
-@@ -6,7 +6,7 @@
- fn main() -> Result<(), Box<dyn std::error::Error>> {
+--- cosmic-greeter/src/main.rs	2025-04-24 19:34:03.697333204 +0200
++++ cosmic-greeter-patched/src/main.rs	2025-04-24 19:42:01.296509138 +0200
+@@ -30,7 +30,7 @@
+ 
      match pwd::Passwd::current_user() {
          Some(current_user) => match current_user.name.as_str() {
 -            "cosmic-greeter" => greeter::main(),
@@ -27,3 +27,4 @@ diff -rub cosmic-greeter/src/main.rs cosmic-greeter-patched/src/main.rs
              _ => locker::main(current_user),
          },
          _ => Err("failed to determine current user".into()),
+Only in cosmic-greeter-patched/src: main.rs.orig
