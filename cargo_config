@@ -6,11 +6,6 @@ git = "https://github.com/DioxusLabs/taffy"
 rev = "7781c70"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/gfx-rs/wgpu?rev=20fda69"]
-git = "https://github.com/gfx-rs/wgpu"
-rev = "20fda69"
-replace-with = "vendored-sources"
-
 [source."git+https://github.com/jackpot51/rust-atomicwrites"]
 git = "https://github.com/jackpot51/rust-atomicwrites"
 replace-with = "vendored-sources"
@@ -23,13 +18,17 @@ replace-with = "vendored-sources"
 git = "https://github.com/pop-os/cosmic-comp"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/pop-os/cosmic-protocols?rev=c8d3a1c"]
+[source."git+https://github.com/pop-os/cosmic-protocols?rev=178eb0b"]
 git = "https://github.com/pop-os/cosmic-protocols"
-rev = "c8d3a1c"
+rev = "178eb0b"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/pop-os/cosmic-text.git"]
 git = "https://github.com/pop-os/cosmic-text.git"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/pop-os/dbus-settings-bindings"]
+git = "https://github.com/pop-os/dbus-settings-bindings"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/pop-os/dbus-settings-bindings?rev=badfc6a"]
@@ -37,9 +36,13 @@ git = "https://github.com/pop-os/dbus-settings-bindings"
 rev = "badfc6a"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/pop-os/glyphon.git?tag=v0.5.0"]
+[source."git+https://github.com/pop-os/freedesktop-icons"]
+git = "https://github.com/pop-os/freedesktop-icons"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/pop-os/glyphon.git?tag=iced-0.14-dev"]
 git = "https://github.com/pop-os/glyphon.git"
-tag = "v0.5.0"
+tag = "iced-0.14-dev"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/pop-os/libcosmic"]
@@ -56,14 +59,19 @@ git = "https://github.com/pop-os/softbuffer"
 tag = "cosmic-4.0"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/pop-os/window_clipboard.git?tag=pop-dnd-8"]
+[source."git+https://github.com/pop-os/window_clipboard.git?tag=pop-0.13-2"]
 git = "https://github.com/pop-os/window_clipboard.git"
-tag = "pop-dnd-8"
+tag = "pop-0.13-2"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/wash2/accesskit.git?branch=winit-0.29"]
-git = "https://github.com/wash2/accesskit.git"
-branch = "winit-0.29"
+[source."git+https://github.com/pop-os/winit.git?tag=iced-xdg-surface-0.13"]
+git = "https://github.com/pop-os/winit.git"
+tag = "iced-xdg-surface-0.13"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/wash2/accesskit?tag=iced-xdg-surface-0.13"]
+git = "https://github.com/wash2/accesskit"
+tag = "iced-xdg-surface-0.13"
 replace-with = "vendored-sources"
 
 [source.vendored-sources]
