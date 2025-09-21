@@ -10,6 +10,10 @@ replace-with = "vendored-sources"
 git = "https://github.com/jackpot51/rust-atomicwrites"
 replace-with = "vendored-sources"
 
+[source."git+https://github.com/pop-os/cosmic-applets"]
+git = "https://github.com/pop-os/cosmic-applets"
+replace-with = "vendored-sources"
+
 [source."git+https://github.com/pop-os/cosmic-bg"]
 git = "https://github.com/pop-os/cosmic-bg"
 replace-with = "vendored-sources"
@@ -18,9 +22,20 @@ replace-with = "vendored-sources"
 git = "https://github.com/pop-os/cosmic-comp"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/pop-os/cosmic-protocols?rev=178eb0b"]
-git = "https://github.com/pop-os/cosmic-protocols"
-rev = "178eb0b"
+[source."git+https://github.com/pop-os/cosmic-protocols//"]
+git = "https://github.com/pop-os/cosmic-protocols//"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/pop-os/cosmic-randr"]
+git = "https://github.com/pop-os/cosmic-randr"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/pop-os/cosmic-settings-daemon"]
+git = "https://github.com/pop-os/cosmic-settings-daemon"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/pop-os/cosmic-settings-subscriptions"]
+git = "https://github.com/pop-os/cosmic-settings-subscriptions"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/pop-os/cosmic-text.git"]
@@ -29,11 +44,6 @@ replace-with = "vendored-sources"
 
 [source."git+https://github.com/pop-os/dbus-settings-bindings"]
 git = "https://github.com/pop-os/dbus-settings-bindings"
-replace-with = "vendored-sources"
-
-[source."git+https://github.com/pop-os/dbus-settings-bindings?rev=badfc6a"]
-git = "https://github.com/pop-os/dbus-settings-bindings"
-rev = "badfc6a"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/pop-os/freedesktop-icons"]
