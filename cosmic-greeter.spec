@@ -14,8 +14,8 @@ Source2:        cargo_config
 Source3:        %{name}.service
 Source4:        %{name}-daemon.service
 Source5:	cosmic-greeter.pam
-Patch0:         fix-dbus-conf.patch
-Patch1:         switch-to-greetd-user.patch
+#Patch0:         fix-dbus-conf.patch
+#Patch1:         switch-to-greetd-user.patch
 
 BuildRequires:  rust-packaging
 BuildRequires:  clang-devel
