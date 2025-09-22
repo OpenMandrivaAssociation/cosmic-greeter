@@ -85,6 +85,7 @@ mkdir -p %{buildroot}/var/lib/greetd
 %doc README.md
 %{_bindir}/%{name}
 %{_bindir}/%{name}-daemon
+%{_bindir}/cosmic-greeter-start
 %config(noreplace) %{_sysconfdir}/greetd/%{name}.toml
 %{_prefix}/lib/tmpfiles.d/%{name}.conf
 %{_datadir}/dbus-1/system.d/%{appname}.conf
