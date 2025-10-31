@@ -2,7 +2,7 @@
 %define         appname com.system76.CosmicGreeter
 Name:           cosmic-greeter
 Version:        1.0.0
-%define beta beta.3
+%define beta beta.4
 Release:        %{?beta:0.%{beta}.}1
 Summary:        COSMIC greeter for greetd
 License:        GPL-3.0-only
