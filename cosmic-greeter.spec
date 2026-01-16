@@ -1,8 +1,8 @@
 %undefine _debugsource_packages
 %define         appname com.system76.CosmicGreeter
 Name:           cosmic-greeter
-Version:        1.0.0
-%define beta beta.7
+Version:        1.0.2
+#define beta beta.7
 Release:        %{?beta:0.%{beta}.}1
 Summary:        COSMIC greeter for greetd
 License:        GPL-3.0-only
@@ -22,16 +22,13 @@ BuildRequires:  clang-devel
 BuildRequires:  git-core
 BuildRequires:  greetd
 BuildRequires:  just
+BuildRequires:  make
 BuildRequires:  llvm-devel
 BuildRequires:  pkgconfig
 BuildRequires:  pkgconfig(dbus-1)
 BuildRequires:  pkgconfig(libinput)
 BuildRequires:  pkgconfig(libudev)
-%if 0%{?suse_version} < 1600
-BuildRequires:  pam-devel
-%else
 BuildRequires:  pkgconfig(pam)
-%endif
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(xkbcommon)
