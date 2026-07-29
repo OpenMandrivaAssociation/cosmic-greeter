@@ -1,9 +1,9 @@
 [source.crates-io]
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/DioxusLabs/taffy?rev=7781c70"]
-git = "https://github.com/DioxusLabs/taffy"
-rev = "7781c70"
+[source."git+https://github.com/iced-rs/cryoglyph.git?rev=e429a025df36ab8145708acb309080ae3deec17a"]
+git = "https://github.com/iced-rs/cryoglyph.git"
+rev = "e429a025df36ab8145708acb309080ae3deec17a"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/jackpot51/rust-atomicwrites"]
@@ -22,24 +22,21 @@ replace-with = "vendored-sources"
 git = "https://github.com/pop-os/cosmic-comp"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/pop-os/cosmic-protocols//"]
+[source."git+https://github.com/pop-os/cosmic-protocols//?rev=32283d7"]
 git = "https://github.com/pop-os/cosmic-protocols//"
+rev = "32283d7"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/pop-os/cosmic-randr"]
 git = "https://github.com/pop-os/cosmic-randr"
 replace-with = "vendored-sources"
 
+[source."git+https://github.com/pop-os/cosmic-settings"]
+git = "https://github.com/pop-os/cosmic-settings"
+replace-with = "vendored-sources"
+
 [source."git+https://github.com/pop-os/cosmic-settings-daemon"]
 git = "https://github.com/pop-os/cosmic-settings-daemon"
-replace-with = "vendored-sources"
-
-[source."git+https://github.com/pop-os/cosmic-settings-subscriptions"]
-git = "https://github.com/pop-os/cosmic-settings-subscriptions"
-replace-with = "vendored-sources"
-
-[source."git+https://github.com/pop-os/cosmic-text.git"]
-git = "https://github.com/pop-os/cosmic-text.git"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/pop-os/dbus-settings-bindings"]
@@ -50,18 +47,13 @@ replace-with = "vendored-sources"
 git = "https://github.com/pop-os/freedesktop-icons"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/pop-os/glyphon.git?tag=iced-0.14-dev"]
-git = "https://github.com/pop-os/glyphon.git"
-tag = "iced-0.14-dev"
-replace-with = "vendored-sources"
-
 [source."git+https://github.com/pop-os/libcosmic"]
 git = "https://github.com/pop-os/libcosmic"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/pop-os/smithay-clipboard?tag=pop-dnd-5"]
+[source."git+https://github.com/pop-os/smithay-clipboard?tag=sctk-0.20"]
 git = "https://github.com/pop-os/smithay-clipboard"
-tag = "pop-dnd-5"
+tag = "sctk-0.20"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/pop-os/softbuffer?tag=cosmic-4.0"]
@@ -69,19 +61,19 @@ git = "https://github.com/pop-os/softbuffer"
 tag = "cosmic-4.0"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/pop-os/window_clipboard.git?tag=pop-0.13-2"]
+[source."git+https://github.com/pop-os/window_clipboard.git?tag=sctk-0.20"]
 git = "https://github.com/pop-os/window_clipboard.git"
-tag = "pop-0.13-2"
+tag = "sctk-0.20"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/pop-os/winit.git?tag=iced-xdg-surface-0.13"]
+[source."git+https://github.com/pop-os/winit.git?tag=cosmic-0.14"]
 git = "https://github.com/pop-os/winit.git"
-tag = "iced-xdg-surface-0.13"
+tag = "cosmic-0.14"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/wash2/accesskit?tag=iced-xdg-surface-0.13"]
+[source."git+https://github.com/wash2/accesskit?tag=cosmic-0.14"]
 git = "https://github.com/wash2/accesskit"
-tag = "iced-xdg-surface-0.13"
+tag = "cosmic-0.14"
 replace-with = "vendored-sources"
 
 [source.vendored-sources]
