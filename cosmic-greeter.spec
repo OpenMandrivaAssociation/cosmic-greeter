@@ -1,7 +1,7 @@
 %undefine _debugsource_packages
 %define         appname com.system76.CosmicGreeter
 Name:           cosmic-greeter
-Version:        1.0.2
+Version:        1.2.0
 #define beta beta.7
 Release:        %{?beta:0.%{beta}.}1
 Summary:        COSMIC greeter for greetd
@@ -14,8 +14,8 @@ Source2:        cargo_config
 Source3:        %{name}.service
 Source4:        %{name}-daemon.service
 Source5:	cosmic-greeter.pam
-Patch0:         fix-dbus-conf.patch
-Patch1:         switch-to-greetd-user.patch
+#Patch0:         fix-dbus-conf.patch
+#Patch1:         switch-to-greetd-user.patch
 
 BuildRequires:  rust-packaging
 BuildRequires:  clang-devel
