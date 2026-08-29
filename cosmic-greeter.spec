@@ -25,6 +25,7 @@ BuildRequires:  just
 BuildRequires:  make
 BuildRequires:  llvm-devel
 BuildRequires:  pkgconfig
+BuildRequires:  pkgconfig(dav1d)
 BuildRequires:  pkgconfig(dbus-1)
 BuildRequires:  pkgconfig(libinput)
 BuildRequires:  pkgconfig(libudev)
